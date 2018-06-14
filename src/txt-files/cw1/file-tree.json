@@ -1,0 +1,15 @@
+[
+    { "name":"Australian", "filename":"australian.txt", "typeFilename":"australian-type.txt" },
+    { "name":"Car", "filename":"car.txt", "typeFilename":"car-type.txt" },
+    { "name":"Diabetes", "filename":"diabetes.txt", "typeFilename":"diabetes-type.txt"},
+    { "name":"Fertility Diagnosis", "filename":"fertilityDiagnosis.txt", "typeFilename":"fertilityDiagnosis-type.txt"},
+    { "name":"German Credit", "filename":"german-credit.txt", "typeFilename":"german-credit-type.txt"},
+    { "name":"Heartdisease", "filename":"heartdisease.txt", "typeFilename":"heartdisease-type.txt"},
+    { "name":"Hepatitis filled", "filename":"hepatitis-filled.txt", "typeFilename":"hepatitis-filled-type.txt"},
+    { "name":"House votes 84", "filename":"house-votes-84.txt", "typeFilename":"house-votes-84-type.txt"},
+    { "name":"Mushroom modified filled", "filename":"mushroom-modified-filled.txt", "typeFilename":"mushroom-modified-filled-type.txt"},
+    { "name":"Nursery", "filename":"nursery.txt", "typeFilename":"nursery-type.txt"},
+    { "name":"Soybean large all filled", "filename":"soybean-large-all-filled.txt", "typeFilename":"soybean-large-all-filled-type.txt"},
+    { "name":"SPECT all modif", "filename":"SPECT-all-modif.txt", "typeFilename":"SPECT-all-modif-type.txt"},
+    { "name":"SPECTF all modif", "filename":"SPECTF-all-modif.txt", "typeFilename":"SPECTF-all-modif-type.txt"}
+]

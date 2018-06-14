@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-3">
+    <span>Wybierz zestaw danych:</span>
+    <ul class="list-group">
+      <li *ngFor="let file of files" class="list-group-item hover-me" [class.im-active]="file===selectedFile" (click)="select(file)">{{file.name}}</li>
+    </ul>
+  </div>
+  <div *ngIf="selectedFile" class="col-9">
+    <div class="row">
+      <div class="col-12">
+        <h4>Aktualny zestaw: {{selectedFile.name}}</h4>
+      </div>
+      <div class="col-6">
+        <span>Klasy decyzyjne:</span>
+        <ul class="scrollable">
+          <li class="py-1" *ngFor="let class of decisionClasses">
+            <strong>{{class.klasa}}</strong> - ilość {{class.count}}</li>
+        </ul>
+      </div>
+      <div class="col-6" *ngIf="currentFileTypes!=undefined">
+        <span>Atrybuty [min : max] - numeryczne:</span>
+        <ul class="scrollable">
+          <li class="py-1 d-flex justify-content-between" *ngFor="let attribute of numericAttributes">
+            <span>
+              <strong>{{attribute.atrybut}}</strong> [{{attribute.min}} : {{attribute.max}}]</span>
+            <div class="d-inline">
+                <button class="btn btn-sm btn-info"
+                (click)="showValues(attribute)">wartości</button>
+                <button class="btn btn-sm btn-warning"
+              (click)="showStandardDeviation(attribute)">odchylenie</button>
+            </div>
+              
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="selectedAttrib && viewMode === viewModes.VALUES" class="row">
+      <div class="col-12">
+        <h5>Aktualny atrybut: {{selectedAttrib.atrybut}}</h5>
+        <span class="d-block"> Liczba wszystkich wartości unikatowych: {{selectedAttrib.valuesCount}}</span>
+        <span class="d-block"> Wartości unikatowe: </span>
+      </div>
+      <div *ngFor="let value of selectedAttrib.valuesList; let i=index" class="col-1">
+        <span>{{value}}
+          <br *ngIf="i%10===0">&nbsp;&nbsp;</span>
+      </div>
+    </div>
+    <div *ngIf="selectedAttrib && viewMode === viewModes.STANDARD_DEVIATION" class="row">
+        <div class="col-12">
+          <h5>Aktualny atrybut: {{selectedAttrib.atrybut}}</h5>
+          <span class="d-block"> Odchylenie standardowe dla atrybutu: {{deviationForSelectedAttrib}}</span>
+          <span class="d-block"> Odchylenie standardowe dla poszczególnych klas decyzyjnych: </span>
+          <ul class="scrollable">
+              <li class="py-1" *ngFor="let class of decisionClasses">
+                <strong>{{class.klasa}}</strong>:  {{getStandardDeviation(selectedAttrib,class.klasa)}}</li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

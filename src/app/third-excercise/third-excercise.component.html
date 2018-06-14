@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-12">
+    <h4>k-NN</h4>
+  </div>
+  <div class="col-2">
+    <span>System testowy: </span>
+    <br>
+    <span class="d-flex justify-content-around" *ngFor="let row of testSystem">
+      <span *ngFor="let element of row">
+        {{element}}
+      </span>
+      <br>
+    </span>
+  </div>
+  <div class="col-2 offset-1">
+    <span>System treningowy: </span>
+    <br>
+    <span class="d-flex justify-content-around" *ngFor="let row of treningSystem">
+      <span *ngFor="let element of row">
+        {{element}}
+      </span>
+      <br>
+    </span>
+  </div>
+  <div class="col-4">
+    <span>Współczynnik k: </span>
+    <input type="number" [(ngModel)]="kAttribute" (ngModelChange)="updateReport()" class="form-group-sm" />
+    <ul class="d-block">
+      <li (click)="selectMetricType(metricTypes.EUCLIDES)" class="my-1 d-block btn btn-sm btn-success">Metryka Euklidesowa</li>
+      <li (click)="selectMetricType(metricTypes.MANHATTAN)" class="my-1 d-block btn btn-sm btn-success">Metryka Manhattan</li>
+      <li (click)="selectMetricType(metricTypes.CANBERRA)" class="my-1 d-block btn btn-sm btn-success">Metryka Canberra</li>
+      <li class="my-1 d-block btn btn-sm btn-success">Metryka Czebyszewa</li>
+      <li class="my-1 d-block btn btn-sm btn-success">Bezwzględny współczynnik korelacji Pearsona</li>
+    </ul>
+  </div>
+  <div *ngIf="testSystem" class="col-12">
+    <ul>
+      <li *ngFor="let row of testSystem">{{getLabelFor(row)}}</li>
+    </ul>
+  </div>
+  <div class="col-12">
+    <h4>Accuracy i Coverage</h4>
+    <ul>
+      <li *ngFor="let decClass of decisionClasses">
+        klasa:
+        <strong>{{decClass.klasa}}</strong>
+        <ul>
+          <li>
+            no. of Objects:
+            <strong>{{decClass.noOfObj}}</strong>
+          </li>
+          <li>
+            acc:
+            <strong>{{decClass.accuracy | number:'1.1-3'}}</strong>
+          </li>
+          <li>
+            cov:
+            <strong>{{decClass.coverage | number:'1.1-3'}}</strong>
+          </li>
+          <li>
+            TPR:
+            <strong>{{decClass.TPR}}</strong>
+          </li>
+        </ul>
+      </li>
+      <li>Globalne: </li>
+      <ul>
+          <li>
+              acc:
+              <strong>{{globalAcc | number:'1.1-3'}}</strong>
+            </li>
+            <li>
+              cov:
+              <strong>{{globalCov | number:'1.1-3'}}</strong>
+            </li>
+      </ul>
+    </ul>
+  </div>
+</div>

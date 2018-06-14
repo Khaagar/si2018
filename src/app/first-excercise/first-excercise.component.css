@@ -1,0 +1,13 @@
+.hover-me:hover{
+    background-color:lightgreen;
+}
+
+.im-active{
+    background-color: green;
+    color:white;
+}
+
+.scrollable{
+    max-height:200px;
+    overflow-y: auto;
+}

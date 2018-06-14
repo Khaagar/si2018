@@ -1,0 +1,7 @@
+export enum MetricTypes {
+    EUCLIDES = "EUCLIDES",
+    MANHATTAN = "MANHATTAN",
+    CANBERRA = "CANBERRA",
+    CZEBYSZEW = "CZEBYSZEW",
+    PEARSON = "PEARSON"
+}
